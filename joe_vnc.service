@@ -1,0 +1,16 @@
+[Unit]
+Description=joe_vnc
+After=network.target syslog.target
+Requires=network.target
+
+[Service]
+Type=simple
+User=joe
+Group=joe
+WorkingDirectory=/home/joe
+ExecStart=/usr/bin/vncserver -geometry 1600x900
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
