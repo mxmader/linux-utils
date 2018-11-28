@@ -1,0 +1,3 @@
+Use the following (WITHOUT file extensions!) under /etc/cron.* ...
+* update_ip_gdrive
+* update_ip_godaddy_dns
