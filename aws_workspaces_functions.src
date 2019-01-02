@@ -1,0 +1,29 @@
+function assure-winblows-workspace {
+
+    if [[ "`aws workspaces describe-workspaces --workspace-ids ws-vw9ltjpl3 | jq -r -M '[.Workspaces][0][0]|[.State][0]'`" != "AVAILABLE" ]]; then
+
+        echo "starting workspace"
+        aws workspaces start-workspaces --start-workspace-requests WorkspaceId=ws-vw9ltjpl3
+        echo "waiting for workspace to start"
+        sleep 30
+    else
+        echo "workspace is up"
+    fi
+
+}
+
+function winblows-workspace-fullscreen {
+    assure-winblows-workspace
+    xfreerdp -f --plugin cliprdr -d corp -n workspace -T winblows -u joe.mader 172.16.0.115:3389
+}
+
+function winblows-workspace-windowed {
+    assure-winblows-workspace
+    xfreerdp -g 1920x1040 --plugin cliprdr -d corp -n workspace -T winblows-big -u joe.mader 172.16.0.115:3389
+}
+
+function winblows-workspace-small {
+    assure-winblows-workspace
+    xfreerdp -g 1275x760 --plugin cliprdr -d corp -n workspace -T winblows-small -u joe.mader 172.16.0.115:3389
+}
+
