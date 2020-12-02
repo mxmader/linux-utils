@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+function mount_external {
+
+    if [ ! -e $device ]; then
+        echo /dev/sdb1 not present
+        return 1
+    fi
+
+    unmount_external
+
+    # mount ext4 vol as root (cannot mount directly as user)
+    sudo mount "${device}" "${mountpoint}" && echo "mounted ${device} on ${mountpoint}"
+
+    # "bind mount" atop the above mount as a user
+    sudo bindfs -u $(id -u) -g $(id -g) "${mountpoint}" "${userdir}" && echo "mounted ${mountpoint} on ${userdir}"
+}
+
+function unmount_quietly {
+
+    (mount | grep -q "${1}") && sudo umount "${1}" 2>/dev/null && echo "unmounted ${1}"
+}
+
+function unmount_external {
+
+    unmount_quietly "${userdir}"
+    unmount_quietly "${mountpoint}"
+}
+

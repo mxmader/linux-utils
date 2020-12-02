@@ -35,19 +35,13 @@ EOF
 chmod +x ~/.vnc/xstartup
 ```
 
-## Set up script to start VNC server - typically called via SSH
-
+## Set up system services
 ```
-cat <<EOF > ~/start_vnc.sh
-#!/bin/bash
-# env used to bypass any existing sessions (e.g. system in graphical.target as default)
-env \
-  -u SESSION_MANAGER \
-  -u DBUS_SESSION_BUS_ADDRESS \
-  tightvncserver \
-    -geometry 1600x900
-EOF
-chmod +x ~/start_vnc.sh
+mkdir -p /usr/lib/systemd/system/
+sudo cp joe-vnc.service /usr/lib/systemd/system/joe-vnc@:1.service
+sudo systemctl daemon-reload
+sudo systemctl enable joe-vnc@:1
+sudo systemctl start joe-vnc@:1
 ```
 
 ## Open host firewall 

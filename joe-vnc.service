@@ -1,0 +1,21 @@
+[Unit]
+Description=joe_vnc
+After=network.target syslog.target
+Requires=network.target
+
+[Service]
+Type=forking
+User=joe
+Group=joe
+WorkingDirectory=/home/joe
+
+# env used to bypass any existing sessions (e.g. system in graphical.target as default)
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
+ExecStart=/usr/bin/env -u SESSION_MANAGER -u DBUS_SESSION_BUS_ADDRESS /usr/bin/tightvncserver -geometry 1440x900  %i
+ExecStop=/usr/bin/vncserver -kill %i
+
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
