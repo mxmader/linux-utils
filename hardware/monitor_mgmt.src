@@ -1,0 +1,9 @@
+
+function joe_setup_monitors {
+
+    xrandr --output HDMI-2 --auto
+    xrandr --output HDMI-2 --rotate right
+    xrandr --output HDMI-1 --primary
+    xrandr --output HDMI-2 --pos 0x0 --output HDMI-1 --pos 1080x530
+}
+

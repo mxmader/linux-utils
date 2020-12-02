@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
+# external hard drive vars
+device=/dev/sdb1
+mountpoint=/mnt
+userdir=/home/joe/external
+
 function mount_external {
 
     if [ ! -e $device ]; then
-        echo /dev/sdb1 not present
+        echo $device not present
         return 1
     fi
 

@@ -1,0 +1,12 @@
+alias quake='quakespasm'
+alias brutal-doom='gzdoom -file ~/.config/gzdoom/brutalv21b-rb.pk3'
+alias brutal-doomone-music='gzdoom -file ~/.config/gzdoom/DOOMONEMUS.wad -file ~/.config/gzdoom/brutalv21b-rb.pk3'
+
+function quake3 {
+
+    xrandr --output HDMI-2 --off
+    ioquake3
+    joe_setup_monitors
+}
+
+
