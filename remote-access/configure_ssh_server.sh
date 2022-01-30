@@ -8,7 +8,7 @@ sudo apt install -y fail2ban crudini openssh-server
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
 # configure SSH server options + security by obscurity
-sudo sed -i -e "s/^#*Port.*$/Port 666/" /etc/ssh/sshd_config
+sudo sed -i -e "s/^#*Port.*$/Port 6666/" /etc/ssh/sshd_config
 sudo sed -i -e "s/^#*PermitRootLogin.*$/PermitRootLogin no/" /etc/ssh/sshd_config
 sudo sed -i -e "s/^#*PasswordAuthentication.*$/PasswordAuthentication no/" /etc/ssh/sshd_config
 sudo systemctl restart ssh
