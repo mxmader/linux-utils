@@ -1,6 +1,6 @@
 # Xubuntu remote access
 
-All procedures aimed at Xubuntu 18.04 as of July 2020
+All procedures aimed at Xubuntu 22.04 as of July 2022
 
 * Set up static IP for remote desktop host
 * Set up router to port forward from WAN IP to server IP + port
