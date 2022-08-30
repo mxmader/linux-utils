@@ -24,6 +24,8 @@ vncpasswd
 ```
 
 ## Set up script to cleanly start xfce4 under VNC session
+For "regular" (non-XFCE) Ubuntu, seek: https://bytexd.com/how-to-install-configure-vnc-server-on-ubuntu/
+TL; DR: you should be able to skip the `xstartup` script creation.
 
 ```
 mkdir -p ~/.vnc
