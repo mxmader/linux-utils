@@ -18,8 +18,8 @@ sudo cp update_ip_godaddy_dns /etc/cron.daily/
 ## Install VNC server software
 
 ```
-sudo apt update
-sudo apt install tightvncserver
+sudo apt-get update
+sudo apt-get install -y tightvncserver
 vncpasswd
 ```
 
