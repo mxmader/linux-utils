@@ -43,8 +43,3 @@ sudo systemctl daemon-reload
 sudo systemctl enable joe-vnc@:1
 sudo systemctl start joe-vnc@:1
 ```
-
-## Open host firewall 
-```
-sudo ufw allow from 0.0.0.0/0 to any port 5901
-```
