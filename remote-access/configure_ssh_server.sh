@@ -6,7 +6,7 @@ SSH_PORT=6666
 
 sudo ufw enable
 
-sudo apt install -y fail2ban crudini openssh-server
+sudo apt-get install -y fail2ban crudini openssh-server
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
 # configure SSH server options + security by obscurity
